@@ -106,8 +106,8 @@
 			// ロード文字オブジェクト
 			let _LOADING=(function(){
 				let _fn=function(){
-					_DEFAULT.call(this,"img/loading.png",480-168-8,320-32-8);
-					this.width=135;
+					_DEFAULT.call(this,"img/loading.png",480-186-8,320-32-8);
+					this.width=163;
 				};
 				_fn.prototype=Object.create(_DEFAULT.prototype);
 				
@@ -142,9 +142,9 @@
 			})();
 			
 			//煙のオブジェクト 
-			let _SMORKE=(function(){
+			let _SMOKE=(function(){
 				let _fn=function(_x,_y){
-					_DEFAULT.call(this,"img/smorke.png",_x,_y);
+					_DEFAULT.call(this,"img/smoke.png",_x,_y);
 					this.animationStateMax=8;
 					this.animationEnd=function(){
 						this.animation=false;
@@ -166,7 +166,7 @@
 				LOADING:_LOADING,
 				DOTTO:_DOTTO,
 				CHEST:_CHEST,
-				SMORKE:_SMORKE,
+				SMOKE:_SMOKE,
 			};
 		})();
 	}
@@ -242,7 +242,7 @@
 		
 		Sprite.get(0).clickEvent=function(){
 			Sprite.get(0).open();
-			Sprite.spset(1,new SPRITE_MODELS.SMORKE(220,150));
+			Sprite.spset(1,new SPRITE_MODELS.SMOKE(220,150));
 			Sprite.get(1).start();
 		}
 		//----------------------
