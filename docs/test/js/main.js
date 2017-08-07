@@ -171,21 +171,21 @@
 		})();
 	}
 	
-	// スプライト関数
+	// スプライト関数命令
 	let Sprite=(function(){
 		let _sprites={}; // バッファにあるスプライト
 		
-		// キャラをスプライトに登録
+		// キャラをスプライトに登録する関数
 		let _spset=function(_id,_model){
 			_sprites[_id]=_model;
 		};
 		
-		// スプライトオブジェクトの取得
+		// スプライトオブジェクトの取得する関数
 		let _get=function(_id){
 			return _sprites[_id];
 		}
 		
-		// スプライトに登録した画像たちを描画
+		// スプライトに登録した画像たちを描画する関数
 		let _drawAll=function(){
 			for(let prop in _sprites){
 				_sprites[prop].animate();
@@ -193,7 +193,7 @@
 			}
 		};
 		
-		// スプライトの画像が読み込み中ならtrue、読み込み終わったらfalse
+		// スプライトの画像が読み込み中ならtrue、読み込み終わったらfalseを返す関数
 		let _checkIsLoading=function(){
 			for(let prop in _sprites){
 				if(_sprites[prop].isLoading){
@@ -219,10 +219,10 @@
 		debug=document.getElementById("debug");
 		
 		
-		loadSprites();
-		loadAssets();
+		loadSprites(); //スプライトのロード
+		loadAssets(); //初期画面のロード
 		
-		loading();
+		loading(); //スプライトのロードが終わったらループ開始
 		
 	});
 	
@@ -245,6 +245,7 @@
 			Sprite.spset(1,new SPRITE_MODELS.SMOKE(220,150));
 			Sprite.get(1).start();
 		}
+		
 		//----------------------
 		
 		
