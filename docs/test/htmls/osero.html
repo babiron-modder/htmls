@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<link rel="shortcut icon" href="../favicon.png">
+		<link rel="stylesheet" href="osero.css">
+		<script src="osero.js"></script>
+	</head>
+	
+	<body>
+		<div>
+			<h1>othello</h1>
+			<p>ごく簡素なオセロです。なお、CPUはいない模様</p>
+			<select id="turn">
+				<option value="first">先行：黒</option>
+				<option value="second">後攻：白</option>
+			</select>
+			<input type="button" value="start" onclick="start();"></input>
+			<table id="game" border="1" cellspacing="0">
+			</table>
+		</div>
+		
+	</body>
+</html>
