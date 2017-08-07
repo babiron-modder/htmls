@@ -57,14 +57,24 @@ function putStone(x,y,check){
 	
 	
 	
+	showPuttable(true);
 	
-	//おける場所を表示
+	
+	return true;
+}
+
+
+
+//おける場所を表示
+function showPuttable(pass){
 	let i,j;
 	let foo;
+	let canPutCount=0;
 	
 	for(i=0;i<8;i++){
 		for(j=0;j<8;j++){
 			if(isPuttable(i,j,false)){
+				canPutCount++;
 				
 				foo=document.getElementById(i+","+j);
 				foo.classList.add("canPut");
@@ -86,9 +96,50 @@ function putStone(x,y,check){
 		}
 	}
 	
-	
-	return true;
+	if(canPutCount==0){
+		//お互いにパスなら終わり
+		if(pass){
+			finish_game();
+		}
+		
+		//パスの処理
+		current_turn=((current_turn==1)?0:1);
+		showPuttable();
+	}
 }
+
+//集計して終わり
+function finish_game(){
+	let bl_count=0
+	let wh_count=0
+	let i,j;
+	
+	for(i=0;i<8;i++){
+		for(j=0;j<8;j++){
+			
+			switch(getStone(i,j)){
+				case 0:
+					bl_count++;
+					break;
+				case 1:
+					wh_count++;
+					break;
+					
+			}
+			
+		}
+	}
+	
+	if(bl_count>wh_count){
+		alert("黒の勝ち");
+	}else if(bl_count<wh_count){
+		alert("白の勝ち");
+	}else{
+		alert("引き分け");
+	}
+	
+}
+
 
 
 //石を取得する関数
