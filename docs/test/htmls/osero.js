@@ -12,6 +12,11 @@ function start(){
 	
 	let main_table=document.getElementById("game");
 	
+	while(main_table.lastChild){
+		main_table.removeChild(main_table.lastChild);
+	}
+	
+	
 	//盤の生成
 	for(i=0;i<8;i++){
 		
@@ -28,6 +33,7 @@ function start(){
 	}
 	
 	//ターンの設定
+	current_turn=0;
 	my_turn=document.getElementById("turn").selectedIndex;
 	
 	//初期石
