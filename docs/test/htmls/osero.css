@@ -9,6 +9,7 @@ p{
 table{
 	border-collapse: collapse;
 	margin:1em;
+	user-select: none;
 }
 
 tr{
