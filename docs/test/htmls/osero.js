@@ -35,6 +35,7 @@ function start(){
 	putStone(3,3,false);
 	putStone(3,4,false);
 	putStone(4,4,false);
+	showPuttable(false);
 }
 
 
@@ -56,8 +57,8 @@ function putStone(x,y,check){
 	current_turn=((current_turn==1)?0:1);
 	
 	
-	
-	showPuttable(true);
+	if(check)
+		showPuttable(false);
 	
 	
 	return true;
@@ -100,11 +101,12 @@ function showPuttable(pass){
 		//お互いにパスなら終わり
 		if(pass){
 			finish_game();
+			return;
 		}
 		
 		//パスの処理
 		current_turn=((current_turn==1)?0:1);
-		showPuttable();
+		showPuttable(true);
 	}
 }
 
@@ -131,11 +133,11 @@ function finish_game(){
 	}
 	
 	if(bl_count>wh_count){
-		alert("黒の勝ち");
+		alert("黒："+bl_count+",白"+wh_count+"\n\n黒の勝ち");
 	}else if(bl_count<wh_count){
-		alert("白の勝ち");
+		alert("黒："+bl_count+",白"+wh_count+"\n\n白の勝ち");
 	}else{
-		alert("引き分け");
+		alert("黒："+bl_count+",白"+wh_count+"\n\n引き分け");
 	}
 	
 }
