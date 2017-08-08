@@ -50,7 +50,7 @@ function putStone(x,y,check){
 	
 	//おけるかどうかチェック
 	if(check){
-		if(isPuttable(x,y,false)==0)
+		if(isPuttable(x,y,false)==false)
 			return false;
 		isPuttable(x,y,true);
 	}
@@ -179,10 +179,11 @@ function turnStone(x,y){
 //石が置けるかどうか確認する関数（trueをいれるとひっくり返る）
 function isPuttable(x,y,turn){
 	let step_x,step_y;
+	let can_put_flag=false;
 	
 	//石が置いてあったらカエレ
 	if(getStone(x,y)!=-1)
-		return false;
+		return can_put_flag;
 	
 	//調べる方向を決定
 	for(step_x=-1;step_x<2;step_x++){
@@ -192,12 +193,12 @@ function isPuttable(x,y,turn){
 				continue;
 			
 			if(hasCombo(x,y,step_x,step_y,turn))
-				return true;
+				can_put_flag=true;
 			
 		}
 	}
 	
-	return false;
+	return can_put_flag;
 }
 
 //連鎖があるか（trueをいれるとひっくり返る）
