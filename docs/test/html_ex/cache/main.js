@@ -15,8 +15,19 @@ document.addEventListener("DOMContentLoaded",function(){
 });
 
 
+let date1 = new Date();
+
+//30日後の日付データを作成
+date1.setTime(date1.getTime() + 30 *24*60*60*1000);
+
+//GMT形式に変換して変数date2に格納する
+let date2 = date1.toGMTString();
+
+
+
 let save=function(){
-	document.cookie=encodeURIComponent(area.value);
+	document.cookie="hoge="+encodeURIComponent(area.value)+";expires="+date2+";";
+	
 	console.log(document.cookie,area.value);
 };
 
